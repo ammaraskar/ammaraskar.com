@@ -210,19 +210,27 @@
             <p>
                 The default and widely used implementation of the Python
                 programing language. Contributions have ranged from worflow to
-                adding fuzz testing for security. Currently a triager, reviewing
-                bugs and pull requests when they come in to lighten the burden on
-                core developers.
+                adding fuzz testing for security. Made a core developer of
+                CPython in 2021.
             </p>
-        </dd>
-
-        <dt><a href="https://github.com/giampaolo/psutil"><i>psutil</i></a></dt>
-        <dd>
             <p>
-                A very popular python package used to grab system level details
-                such as processor utilization. Contributed a patch to simulate
-                a POSIX-like load average calculation for Windows.
+                Wrote and implemented
+                <a href="https://peps.python.org/pep-0657/">PEP 657</a> to
+                improve tracebacks by pointing at the exact expressions that
+                cause errors.
             </p>
+            <pre>
+                <code>
+Traceback (most recent call last):
+  File "distance.py", line 11, in <module>
+    print(manhattan_distance(p1, p2))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "distance.py", line 6, in manhattan_distance
+    return abs(point_1.x - point_2.x) + abs(point_1.y - point_2.y)
+                           ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'x'
+                </code>
+            </pre>
         </dd>
 
         <dt><a href="https://github.com/google/oss-fuzz"><i>oss-fuzz</i></a></dt>
