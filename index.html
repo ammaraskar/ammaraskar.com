@@ -266,12 +266,18 @@ AttributeError: 'NoneType' object has no attribute 'x'
         var htmlTag = document.getElementsByTagName("html")[0];
         var button = document.getElementById("invmode");
 
-        button.addEventListener(clickEvent, function() {
+        function toggleDarkMode() {
             button.innerText = toggled ? "Dark Mode" : "Light Mode";
             htmlTag.classList.toggle("inverted")
             htmlTag.classList.toggle("contrast");
             toggled = !toggled;
-        }, false);
+        }
+
+        button.addEventListener(clickEvent, toggleDarkMode, false);
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleDarkMode();
+        }
     </script>
 </body>
 </html>
